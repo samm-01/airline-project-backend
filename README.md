@@ -19,32 +19,14 @@ management recommendations. Feel free to change anything.
 
 `utils` - contains helper method, error classes etc.
 
+`migrations` - migrations are used to maintain the versions of your databases.
+
 -- inside the `src/config` folder create a file named as config.json and write the following code
 
+- Go inside `src` folder, and run the following command :
+
 ```
-{
-"development": {
-"username": "root",
-"password": null,
-"database": "database_development",
-"host": "127.0.0.1",
-"dialect": "mysql"
-},
-"test": {
-"username": "root",
-"password": null,
-"database": "database_test",
-"host": "127.0.0.1",
-"dialect": "mysql"
-},
-"production": {
-"username": "root",
-"password": null,
-"database": "database_production",
-"host": "127.0.0.1",
-"dialect": "mysql"
-}
-}
+npx sequelize init
 ```
 
 - if you are setting up your developing environment then write the username of your db and password of your db and in dialect mention whatever db you are using, for ex "MySQL, mariadb, etc.
