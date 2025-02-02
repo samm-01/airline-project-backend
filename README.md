@@ -33,8 +33,6 @@ npx sequelize init
 
 - if you are setting up your developing environment then write the username of your db and password of your db and in dialect mention whatever db you are using, for ex "MySQL, mariadb, etc.
 
-- if
-
 Generally in high level projects, people dont use raw strings, thay make a separate json file, and import from there using key value pairs. One reason for this is that json files can be easily translated into any other languages, incase the viewr dont understand English. They just simple add another translational service in there project, which is used to translate the strings. Another reason for this is that it reduces the redundancy.
 
 - Seeders files are used to populate the database with something. Generally this is used when working on very large projects and new people are joining the team. so to reduce the efforts to set this up, we use seeders.
@@ -50,3 +48,20 @@ To remove the migrations made to the database use the following command :
 ```
 npx sequelize db:seed:undo:all
 ```
+
+## Non functional requirements
+
+- We can expect more flight searches than bookings.
+- The system needs to be reliable in terms of bookings.
+- Expect that we would be having 100,000 total users.
+- 100,000 bookings might come up in the quarter (100 days).
+- in one day, we might get 1000 bookings.
+- System should be able to make sure that we dont change the prices when the booking payment is going on.
+- System should be able to autoscale itself for atleast 3x more traffic.
+- Capacity estimation is also important. Like we are making 400,000 bookings every year. 2M bookings in 5 years. Storing the data for every booking. Convert the storage bytes to GB and make calculations accordingly.
+
+## Functional Requirements
+
+- User should be able to search flights also search should be based on the filters.
+- After booking user should be able to get boarding pass.
+- Immediate notification of booking should be sent.
