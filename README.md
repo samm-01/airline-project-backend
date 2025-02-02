@@ -34,3 +34,19 @@ npx sequelize init
 - if you are setting up your developing environment then write the username of your db and password of your db and in dialect mention whatever db you are using, for ex "MySQL, mariadb, etc.
 
 - if
+
+Generally in high level projects, people dont use raw strings, thay make a separate json file, and import from there using key value pairs. One reason for this is that json files can be easily translated into any other languages, incase the viewr dont understand English. They just simple add another translational service in there project, which is used to translate the strings. Another reason for this is that it reduces the redundancy.
+
+- Seeders files are used to populate the database with something. Generally this is used when working on very large projects and new people are joining the team. so to reduce the efforts to set this up, we use seeders.
+
+To make the migration to the database use the following command :
+
+```
+npx sequelize db:seed:all
+```
+
+To remove the migrations made to the database use the following command :
+
+```
+npx sequelize db:seed:undo:all
+```

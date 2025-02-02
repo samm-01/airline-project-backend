@@ -9,6 +9,7 @@
   "author": "Sameer",
   "license": "ISC",
   "dependencies": {
+    "cjs-loader": "^0.1.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "http-status-codes": "^2.3.0",
