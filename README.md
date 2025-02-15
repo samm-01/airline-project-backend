@@ -37,6 +37,12 @@ Generally in high level projects, people dont use raw strings, thay make a separ
 
 - Seeders files are used to populate the database with something. Generally this is used when working on very large projects and new people are joining the team. so to reduce the efforts to set this up, we use seeders.
 
+To add the new model to the database use the following command :
+
+```
+npx sequelize model:generate --name %ModelName% --attributes name:string
+```
+
 To make the migration to the database use the following command :
 
 ```
