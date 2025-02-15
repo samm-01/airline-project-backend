@@ -25,4 +25,12 @@ router.delete('/:id',
     AirplaneController.destroyAirplane,
 );
 
+// /api/v1/airplanes/:id PUT request
+router.put('/:id',
+    AirplaneMiddlewares.validateUpdateRequest,
+    AirplaneController.updateAirplane
+);
+
+// /api/v1/airplanes/info GET request
+
 module.exports = router;
