@@ -52,9 +52,19 @@ async function updateCity(id, data) {
     }
 }
 
+async function deleteCity(id) {
+    try {
+        const city = await cityRepository.destroy(id);
+        return city;
+    } catch (error) {
+        throw new AppError(`Cannot delete city with id ${id}`, StatusCodes.INTERNAL_SERVER_ERROR)
+    }
+}
+
 module.exports = {
     createCity,
     getAllCities,
     getCityById,
-    updateCity
+    updateCity,
+    deleteCity
 }
