@@ -21,6 +21,40 @@ async function createCity(data) {
     }
 }
 
+
+async function getAllCities() {
+    try {
+        const cities = await cityRepository.getAll();
+        return cities;
+    } catch (error) {
+        throw new AppError('Cannot get all cities.', StatusCodes.INTERNAL_SERVER_ERROR)
+    }
+}
+
+async function getCityById(id) {
+    try {
+        const city = await cityRepository.get(id);
+        return city;
+    } catch (error) {
+        throw new AppError(`Cannot find city with id ${id}`, StatusCodes.NOT_FOUND)
+    }
+}
+
+async function updateCity(id, data) {
+    try {
+        const city = await cityRepository.update(id, data);
+        return city;
+    } catch (error) {
+        if (error.statusCode == StatusCodes.NOT_FOUND) {
+            throw new AppError('City you requested to update is not present.', error.statusCode)
+        }
+        throw new AppError(`Cannot update city with id ${id}`, StatusCodes.INTERNAL_SERVER_ERROR)
+    }
+}
+
 module.exports = {
-    createCity
+    createCity,
+    getAllCities,
+    getCityById,
+    updateCity
 }
