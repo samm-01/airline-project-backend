@@ -71,3 +71,5 @@ npx sequelize db:seed:undo:all
 - User should be able to search flights also search should be based on the filters.
 - After booking user should be able to get boarding pass.
 - Immediate notification of booking should be sent.
+
+repo -- service -- controller -- middleware -- routes
