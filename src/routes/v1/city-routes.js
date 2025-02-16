@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { CityController } = require('../../controllers');
 const { CityMiddlewares } = require('../../middlewares')
 
-console.log("inside airplane routes : ");
+console.log("inside city routes : ");
 
 // /api/v1/city POST request
 router.post('/',

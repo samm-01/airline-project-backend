@@ -8,7 +8,7 @@ const { SuccessResponse, ErrorResponse } = require('../utils/common');
  */
 async function createCity(req, res) {
     try {
-        console.log("Inside Controller : ", req.body);
+        console.log("Inside city Controller : ", req.body);
         const city = await CityService.createCity({
             name: req.body.name
         });
