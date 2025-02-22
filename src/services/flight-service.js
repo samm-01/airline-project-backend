@@ -35,6 +35,7 @@ async function createFlight(data) {
 
 async function getAllFlights(query) {
     let customFilter = {};
+    const endingTripTime = " 23:59:00"
     // trips = MUM-DEL
     if (query.trips) {
         [departureAirportId, arrivalAirportId] = query.trips.split("-");
@@ -52,6 +53,11 @@ async function getAllFlights(query) {
     if (query.travellers) {
         customFilter.totalSeats = {
             [Op.gte]: query.travellers
+        }
+    }
+    if (query.departureTime) {
+        customFilter.departureTime = {
+            [Op.between]: [query.departureTime, query.departureTime + endingTripTime]
         }
     }
     try {
