@@ -19,7 +19,7 @@ class FlightRepository extends crudRepository {
 
     // }
 
-    async getAllFlights(filter) {
+    async getAllFlights(filter, sortFilter) {
         console.log("Filter applied:", filter);
 
         const response = await Flight.findAll({
@@ -28,7 +28,8 @@ class FlightRepository extends crudRepository {
                 'arrivalAirportId', 'arrivalTime', 'departureTime', 'price',
                 'boardingGate', 'totalSeats', 'createdAt', 'updatedAt'
             ],
-            where: filter
+            where: filter,
+            order: sortFilter
         });
 
         console.log("Flights found:", response.length);
