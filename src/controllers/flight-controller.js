@@ -89,8 +89,26 @@ async function updateFlight(req, res) {
 
 }
 
+async function getAllFlights(req, res) {
+    // Filter by trips, departure and arrival airports
+    // const { trips, departureAirportId, arrivalAirportId } = req.query;
+    try {
+        console.log("Inside getAllFlights : ", req.query);
+        const flights = await FlightService.getAllFlights(req.query);
+        SuccessResponse.data = flights;
+        return res.status(StatusCodes.OK).json(SuccessResponse);
+    } catch (error) {
+        ErrorResponse.message = 'Something went wrong while fetching flights';
+        ErrorResponse.error = error;
+        return res.status(error.statusCode).json(ErrorResponse);
+    }
+}
+
 
 module.exports = {
     createFlight,
     getFlights,
+    getFlight,
+    updateFlight,
+    getAllFlights
 }
